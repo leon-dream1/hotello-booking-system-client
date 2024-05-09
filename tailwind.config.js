@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        von : "'Herr Von Muellerhoff', cursive",
+        merriweather : '"Merriweather", serif',
+        rubik : '"Rubik", sans-serif',
+        montserrat: '"Montserrat", sans-serif',
+        roboto: '"Roboto", sans-serif'
+      }
+    },
   },
   plugins: [require('daisyui'),],
 }
