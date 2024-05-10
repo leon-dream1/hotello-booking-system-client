@@ -1,7 +1,20 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "/logo.svg";
+import useAuth from "../hooks/useAuth";
+import userIcon from "/user.png";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
+  const { user, logOut, setUser } = useAuth();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    logOut()
+      // eslint-disable-next-line no-unused-vars
+      .then((result) => {
+        setUser("");
+      })
+      .catch((error) => console.log(error));
+  };
   const links = (
     <>
       <NavLink
@@ -99,28 +112,64 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+            {user ? (
+              <div className="flex items-center space-x-1 md:space-x-4">
+                <div className="dropdown dropdown-end">
+                  <div>
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className="btn btn-ghost btn-circle avatar"
+                    >
+                      <div
+                        className="w-8 rounded-full"
+                        data-tooltip-id="my-tooltip"
+                      >
+                        <img
+                          alt="Tailwind CSS Navbar component"
+                          src={user.photoURL ? user.photoURL : { userIcon }}
+                        />
+                      </div>
+                    </div>
+                    <ul
+                      tabIndex={0}
+                      className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                    >
+                      <li>
+                        <a>{user.displayName}</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <Tooltip
+                    id="my-tooltip"
+                    content={user.displayName}
+                    offset={20}
+                    className="z-10"
                   />
                 </div>
+                <button
+                  onClick={handleLogout}
+                  className="bg-[#ee4040] text-white text-[14px] md:text-[18px] font-merriweather font-semibold px-[10px] md:px-[35px] py-[5px] rounded-lg"
+                >
+                  Log out
+                </button>
               </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a>Logout</a>
-                </li>
-              </ul>
-            </div>
+            ) : (
+              <div className="hidden lg:flex space-x-6">
+                <button
+                  onClick={() => navigate("/login")}
+                  className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
+                >
+                  Login
+                </button>
+                <button
+                  onClick={() => navigate("/register")}
+                  className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px]  rounded-md font-merriweather"
+                >
+                  Register
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

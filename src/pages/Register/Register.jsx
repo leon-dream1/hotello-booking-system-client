@@ -1,8 +1,7 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
-// import { toast } from "react-toastify";
+import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const {
@@ -11,8 +10,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser, updateUserProfile, setUser, setLoading } =
-    useContext(AuthContext);
+  const { createUser, updateUserProfile, setUser, setLoading } = useAuth();
 
   const navigate = useNavigate();
 
@@ -21,20 +19,20 @@ const Register = () => {
     createUser(email, password)
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
-        // toast.success("Your Registration is successful.........");
+        toast.success("Your Registration is successful.........");
         updateUserProfile(name, photoURL)
           .then(() => {
             setUser(result.user);
             setLoading(false);
-            // toast.success("Update is saved successfully......");
+            toast.success("Update is saved successfully......");
             navigate("/");
           })
           .catch((error) => {
             console.log(error);
           });
       })
-      .catch(() => {
-        // toast.error(error.message);
+      .catch((error) => {
+        toast.error(error.message);
       });
   };
   return (

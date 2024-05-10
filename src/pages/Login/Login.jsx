@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-import { AuthContext } from "../../Provider/AuthProvider";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -13,8 +13,7 @@ const Login = () => {
   const location = useLocation();
   console.log(location);
 
-  const { logInWithEmailAndPassword, googleLogin, faceBookLogin } =
-    useContext(AuthContext);
+  const { logInWithEmailAndPassword, googleLogin, faceBookLogin } = useAuth();
 
   const onSubmit = (data) => {
     setError("");
@@ -22,7 +21,7 @@ const Login = () => {
     logInWithEmailAndPassword(email, password)
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
-        // toast.success("Log in successfully.........");
+        toast.success("Log in successfully.........");
         reset({
           email: "",
           password: "",
@@ -40,7 +39,7 @@ const Login = () => {
     googleLogin()
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
-        // toast.success("Log in successfully.........");
+        toast.success("Log in successfully.........");
         navigate(location.state ? location.state : "/");
       })
       .catch((err) => {
@@ -52,7 +51,7 @@ const Login = () => {
     faceBookLogin()
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
-        // toast.success("Log in successfully.........");
+        toast.success("Log in successfully.........");
         navigate(location.state ? location.state : "/");
       })
       .catch((err) => {
