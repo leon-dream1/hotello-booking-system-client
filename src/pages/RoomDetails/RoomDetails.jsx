@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -24,6 +24,9 @@ Modal.setAppElement("#root");
 const RoomDetails = () => {
   const selectedRoom = useLoaderData();
   const { user } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
   const [bookingDate, setBookingDate] = useState(new Date().toLocaleString());
 
   //   console.table(selectedRoom);
@@ -40,6 +43,13 @@ const RoomDetails = () => {
     setIsOpen(false);
   }
 
+  const handleBookButton = () => {
+    if (!user) {
+      return navigate('/login');
+    }
+    openModal();
+  };
+
   const handleBooking = () => {
     const bookingData = {
       ...selectedRoom,
@@ -49,11 +59,17 @@ const RoomDetails = () => {
     };
     console.table(bookingData);
 
-    axios.post("http://localhost:5000/booking", bookingData).then((res) => {
-      if (res.data.acknowledged) {
-        closeModal();
-      }
-    });
+    axios
+      .post(
+        `http://localhost:5000/booking?id=${selectedRoom?._id}`,
+        bookingData
+      )
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          closeModal();
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   console.log(bookingDate.toLocaleString());
@@ -108,7 +124,7 @@ const RoomDetails = () => {
             />
           </div>
           <button
-            onClick={openModal}
+            onClick={handleBookButton}
             className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
           >
             Book Now
