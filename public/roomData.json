@@ -1,0 +1,261 @@
+[
+  {
+    "room_type": "Standard Room",
+    "description": "A comfortable room with basic amenities suitable for solo travelers or couples.",
+    "price_per_night": 100,
+    "room_size": "200 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/tMqXM18/1.jpg",
+    "special_offers": []
+  },
+  {
+    "room_type": "Deluxe Room",
+    "description": "A spacious and well-appointed room with additional amenities for a luxurious stay.",
+    "price_per_night": 200,
+    "room_size": "300 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/bBx75Nq/2.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Early Bird Discount",
+        "offer_description": "Book 30 days in advance and get 10% off on your stay."
+      },
+      {
+        "offer_title": "Weekend Getaway",
+        "offer_description": "Stay 2 nights over the weekend and get the 3rd night free."
+      }
+    ]
+  },
+  {
+    "room_type": "Suite",
+    "description": "An opulent suite with separate living and sleeping areas, perfect for a luxurious retreat.",
+    "price_per_night": 400,
+    "room_size": "500 sqft",
+    "availability": false,
+    "review": 0,
+    "images": "https://i.ibb.co/tMqXM18/1.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Honeymoon Package",
+        "offer_description": "Enjoy a romantic getaway with champagne, roses, and a couples massage."
+      }
+    ]
+  },
+  {
+    "room_type": "Standard Room",
+    "description": "Cozy room with all the necessary amenities for a relaxing stay.",
+    "price_per_night": 120,
+    "room_size": "220 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/WGpQ5WT/4.jpg",
+    "special_offers": []
+  },
+  {
+    "room_type": "Deluxe Room",
+    "description": "Experience luxury with spacious interiors and elegant furnishings.",
+    "price_per_night": 250,
+    "room_size": "350 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/stXn6Lr/5.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Weekend Special",
+        "offer_description": "Enjoy a complimentary spa session with your weekend stay."
+      }
+    ]
+  },
+  {
+    "room_type": "Suite",
+    "description": "Indulge in luxury with spacious suites and personalized service.",
+    "price_per_night": 450,
+    "room_size": "550 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/SVP0vwn/6.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Executive Package",
+        "offer_description": "Upgrade to our executive package for exclusive benefits and services."
+      }
+    ]
+  },
+  {
+    "room_type": "Economy Room",
+    "description": "A budget-friendly room with essential amenities, ideal for travelers on a tight budget.",
+    "price_per_night": 80,
+    "room_size": "180 sqft",
+    "availability": false,
+    "review": 0,
+    "images": "https://i.ibb.co/6WFTdqB/7.jpg",
+    "special_offers": []
+  },
+  {
+    "room_type": "Family Room",
+    "description": "Spacious room designed to accommodate families, featuring multiple beds and family-friendly amenities.",
+    "price_per_night": 300,
+    "room_size": "400 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/JHyGC2j/8.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Family Package",
+        "offer_description": "Enjoy special discounts and amenities with our family package."
+      }
+    ]
+  },
+  {
+    "room_type": "Executive Suite",
+    "description": "Luxurious suite designed for executives, featuring a spacious workspace and upscale amenities.",
+    "price_per_night": 500,
+    "room_size": "600 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/W5Gc1Yh/9.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Business Traveler Package",
+        "offer_description": "Enhance your business trip with our exclusive business traveler package."
+      }
+    ]
+  },
+  {
+    "room_type": "Penthouse Suite",
+    "description": "The epitome of luxury with breathtaking views and unparalleled amenities, perfect for special occasions.",
+    "price_per_night": 1000,
+    "room_size": "1000 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/pr7H42H/10.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Special Occasion Package",
+        "offer_description": "Celebrate your special occasion with our exclusive penthouse suite package."
+      }
+    ]
+  },
+  {
+    "room_type": "Standard Single Room",
+    "description": "Compact and cozy room designed for solo travelers, offering essential amenities for a comfortable stay.",
+    "price_per_night": 80,
+    "room_size": "150 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/GM84xD4/11.jpg",
+    "special_offers": []
+  },
+  {
+    "room_type": "Standard Double Room",
+    "description": "Simple yet spacious room with double beds, perfect for couples or friends traveling together.",
+    "price_per_night": 120,
+    "room_size": "200 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/StWK6yn/12.jpg",
+    "special_offers": []
+  },
+  {
+    "room_type": "Executive Room",
+    "description": "Well-appointed room designed for business travelers, featuring a comfortable workspace and premium amenities.",
+    "price_per_night": 150,
+    "room_size": "220 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/tMqXM18/1.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Business Traveler Package",
+        "offer_description": "Enhance your business trip with our exclusive executive room package."
+      }
+    ]
+  },
+  {
+    "room_type": "Junior Suite",
+    "description": "Elegant suite with separate living and sleeping areas, ideal for travelers seeking additional space and comfort.",
+    "price_per_night": 250,
+    "room_size": "350 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/MBX084Q/14.jpg",
+    "special_offers": []
+  },
+  {
+    "room_type": "Family Suite",
+    "description": "Spacious suite designed for families, featuring multiple bedrooms and family-friendly amenities.",
+    "price_per_night": 350,
+    "room_size": "450 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/cDhQqgP/15.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Family Package",
+        "offer_description": "Enjoy special discounts and amenities with our family suite package."
+      }
+    ]
+  },
+  {
+    "room_type": "Presidential Suite",
+    "description": "The ultimate in luxury and sophistication, offering expansive living space, private dining area, and exclusive amenities.",
+    "price_per_night": 1500,
+    "room_size": "2000 sqft",
+    "availability": false,
+    "review": 0,
+    "images": "https://i.ibb.co/Xy6fcwK/16.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Luxury Retreat Package",
+        "offer_description": "Experience the height of luxury with our exclusive presidential suite retreat package."
+      }
+    ]
+  },
+  {
+    "room_type": "Adjoining Rooms",
+    "description": "Two interconnected rooms perfect for families or groups traveling together, offering separate sleeping areas with shared amenities.",
+    "price_per_night": 200,
+    "room_size": "400 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/mS9R5Tb/17.jpg",
+    "special_offers": []
+  },
+  {
+    "room_type": "Accessible Room",
+    "description": "Thoughtfully designed room with accessibility features for guests with mobility challenges, ensuring a comfortable stay for all.",
+    "price_per_night": 120,
+    "room_size": "250 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/LrFsqwh/18.jpg",
+    "special_offers": []
+  },
+  {
+    "room_type": "Pet-Friendly Room",
+    "description": "Room specially designated for guests traveling with pets, featuring pet-friendly amenities and services.",
+    "price_per_night": 100,
+    "room_size": "180 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/HPsDQtB/19.jpg",
+    "special_offers": []
+  },
+  {
+    "room_type": "Honeymoon Suite",
+    "description": "Romantic suite designed for honeymooners, featuring luxurious amenities and breathtaking views.",
+    "price_per_night": 400,
+    "room_size": "500 sqft",
+    "availability": true,
+    "review": 0,
+    "images": "https://i.ibb.co/f2gh530/20.jpg",
+    "special_offers": [
+      {
+        "offer_title": "Honeymoon Package",
+        "offer_description": "Celebrate your love with our exclusive honeymoon suite package."
+      }
+    ]
+  }
+]
