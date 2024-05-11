@@ -1,14 +1,21 @@
-import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Room = () => {
-  const allRoomData = useLoaderData();
-  // eslint-disable-next-line no-unused-vars
-  const [allRoom, setAllRoom] = useState(allRoomData);
-  console.log(allRoom);
+  const [allRoom, setAllRoom] = useState([]);
+  const { loading } = useAuth();
 
+  useEffect(() => {
+    axios.get("http://localhost:5000/room").then((res) => {
+      setAllRoom(res.data);
+    });
+  }, []);
   const navigate = useNavigate();
 
+  if (loading) return;
+    
   return (
     <div className="container mx-auto mt-[100px]">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

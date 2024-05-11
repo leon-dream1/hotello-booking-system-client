@@ -6,11 +6,14 @@ import Login from "../pages/Login/Login";
 import PrivateRoute from "../pages/PrivateRoute/PrivateRoute";
 import MyBooking from "../pages/MyBooking/MyBooking";
 import Room from "../pages/Room/Room";
+import RoomDetails from "../pages/RoomDetails/RoomDetails";
+import PageNotFound from "../pages/PageNotFound/PageNotFound";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <PageNotFound />,
     children: [
       {
         index: true,
@@ -27,7 +30,12 @@ export const router = createBrowserRouter([
       {
         path: "/allRoom",
         element: <Room />,
-        loader: () => fetch('http://localhost:5000/room')
+      },
+      {
+        path: "/room/:id",
+        element: <RoomDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/room/${params.id}`),
       },
       {
         path: "/myBooking",
