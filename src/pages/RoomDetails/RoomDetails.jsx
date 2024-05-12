@@ -1,11 +1,11 @@
-import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import Modal from "react-modal";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const customStyles = {
   content: {
@@ -18,21 +18,13 @@ const customStyles = {
   },
 };
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#root");
 
 const RoomDetails = () => {
   const selectedRoom = useLoaderData();
   const { user } = useAuth();
-  const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
   const [bookingDate, setBookingDate] = useState(new Date().toLocaleString());
-
-  //   console.table(selectedRoom);
-  console.log(selectedRoom.special_offers);
-
-  //   const {special_offers} = selectedRoom;
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -45,7 +37,7 @@ const RoomDetails = () => {
 
   const handleBookButton = () => {
     if (!user) {
-      return navigate('/login');
+      return navigate("/login");
     }
     openModal();
   };
@@ -65,14 +57,15 @@ const RoomDetails = () => {
         bookingData
       )
       .then((res) => {
+        console.log(res.data);
         if (res.data.modifiedCount) {
           closeModal();
+          toast('Congratulation!!!! Room is Booked For you');
         }
       })
       .catch((err) => console.log(err));
   };
 
-  console.log(bookingDate.toLocaleString());
   return (
     <div className="container mx-auto mt-[100px] lg:mt-[100px]">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center m-[20px] lg:m-0">
