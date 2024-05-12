@@ -44,8 +44,16 @@ const RoomDetails = () => {
 
   const handleBooking = () => {
     const bookingData = {
-      ...selectedRoom,
+      // ...selectedRoom,
+      room_type: selectedRoom.room_type,
+      room_id: selectedRoom.room_id,
+      description: selectedRoom.description,
+      price_per_night: selectedRoom.price_per_night,
+      room_size: selectedRoom.room_size,
       date: bookingDate,
+      review: selectedRoom.review,
+      images: selectedRoom.images,
+      special_offers: selectedRoom.special_offers,
       email: user.email,
       displayName: user.displayName,
     };
@@ -60,7 +68,7 @@ const RoomDetails = () => {
         console.log(res.data);
         if (res.data.modifiedCount) {
           closeModal();
-          toast('Congratulation!!!! Room is Booked For you');
+          toast("Congratulation!!!! Room is Booked For you");
         }
       })
       .catch((err) => console.log(err));

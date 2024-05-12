@@ -1,6 +1,7 @@
 [
   {
     "room_type": "Standard Room",
+    "room_id": 1,
     "description": "A comfortable room with basic amenities suitable for solo travelers or couples.",
     "price_per_night": 100,
     "room_size": "200 sqft",
@@ -11,6 +12,7 @@
   },
   {
     "room_type": "Deluxe Room",
+    "room_id": 2,
     "description": "A spacious and well-appointed room with additional amenities for a luxurious stay.",
     "price_per_night": 200,
     "room_size": "300 sqft",
@@ -30,6 +32,7 @@
   },
   {
     "room_type": "Suite",
+    "room_id": 3,
     "description": "An opulent suite with separate living and sleeping areas, perfect for a luxurious retreat.",
     "price_per_night": 400,
     "room_size": "500 sqft",
@@ -45,6 +48,7 @@
   },
   {
     "room_type": "Standard Room",
+    "room_id": 4,
     "description": "Cozy room with all the necessary amenities for a relaxing stay.",
     "price_per_night": 120,
     "room_size": "220 sqft",
@@ -55,6 +59,7 @@
   },
   {
     "room_type": "Deluxe Room",
+    "room_id": 5,
     "description": "Experience luxury with spacious interiors and elegant furnishings.",
     "price_per_night": 250,
     "room_size": "350 sqft",
@@ -70,6 +75,7 @@
   },
   {
     "room_type": "Suite",
+    "room_id": 6,
     "description": "Indulge in luxury with spacious suites and personalized service.",
     "price_per_night": 450,
     "room_size": "550 sqft",
@@ -85,6 +91,7 @@
   },
   {
     "room_type": "Economy Room",
+    "room_id": 7,
     "description": "A budget-friendly room with essential amenities, ideal for travelers on a tight budget.",
     "price_per_night": 80,
     "room_size": "180 sqft",
@@ -95,6 +102,7 @@
   },
   {
     "room_type": "Family Room",
+    "room_id": 8,
     "description": "Spacious room designed to accommodate families, featuring multiple beds and family-friendly amenities.",
     "price_per_night": 300,
     "room_size": "400 sqft",
@@ -110,6 +118,7 @@
   },
   {
     "room_type": "Executive Suite",
+    "room_id": 9,
     "description": "Luxurious suite designed for executives, featuring a spacious workspace and upscale amenities.",
     "price_per_night": 500,
     "room_size": "600 sqft",
@@ -125,6 +134,7 @@
   },
   {
     "room_type": "Penthouse Suite",
+    "room_id": 10,
     "description": "The epitome of luxury with breathtaking views and unparalleled amenities, perfect for special occasions.",
     "price_per_night": 1000,
     "room_size": "1000 sqft",
@@ -140,6 +150,7 @@
   },
   {
     "room_type": "Standard Single Room",
+    "room_id": 11,
     "description": "Compact and cozy room designed for solo travelers, offering essential amenities for a comfortable stay.",
     "price_per_night": 80,
     "room_size": "150 sqft",
@@ -150,6 +161,7 @@
   },
   {
     "room_type": "Standard Double Room",
+    "room_id": 12,
     "description": "Simple yet spacious room with double beds, perfect for couples or friends traveling together.",
     "price_per_night": 120,
     "room_size": "200 sqft",
@@ -160,6 +172,7 @@
   },
   {
     "room_type": "Executive Room",
+    "room_id": 13,
     "description": "Well-appointed room designed for business travelers, featuring a comfortable workspace and premium amenities.",
     "price_per_night": 150,
     "room_size": "220 sqft",
@@ -175,6 +188,7 @@
   },
   {
     "room_type": "Junior Suite",
+    "room_id": 14,
     "description": "Elegant suite with separate living and sleeping areas, ideal for travelers seeking additional space and comfort.",
     "price_per_night": 250,
     "room_size": "350 sqft",
@@ -185,6 +199,7 @@
   },
   {
     "room_type": "Family Suite",
+    "room_id": 15,
     "description": "Spacious suite designed for families, featuring multiple bedrooms and family-friendly amenities.",
     "price_per_night": 350,
     "room_size": "450 sqft",
@@ -200,6 +215,7 @@
   },
   {
     "room_type": "Presidential Suite",
+    "room_id": 16,
     "description": "The ultimate in luxury and sophistication, offering expansive living space, private dining area, and exclusive amenities.",
     "price_per_night": 1500,
     "room_size": "2000 sqft",
@@ -215,6 +231,7 @@
   },
   {
     "room_type": "Adjoining Rooms",
+    "room_id": 17,
     "description": "Two interconnected rooms perfect for families or groups traveling together, offering separate sleeping areas with shared amenities.",
     "price_per_night": 200,
     "room_size": "400 sqft",
@@ -225,6 +242,7 @@
   },
   {
     "room_type": "Accessible Room",
+    "room_id": 18,
     "description": "Thoughtfully designed room with accessibility features for guests with mobility challenges, ensuring a comfortable stay for all.",
     "price_per_night": 120,
     "room_size": "250 sqft",
@@ -235,6 +253,7 @@
   },
   {
     "room_type": "Pet-Friendly Room",
+    "room_id": 19,
     "description": "Room specially designated for guests traveling with pets, featuring pet-friendly amenities and services.",
     "price_per_night": 100,
     "room_size": "180 sqft",
@@ -245,6 +264,7 @@
   },
   {
     "room_type": "Honeymoon Suite",
+    "room_id": 20,
     "description": "Romantic suite designed for honeymooners, featuring luxurious amenities and breathtaking views.",
     "price_per_night": 400,
     "room_size": "500 sqft",

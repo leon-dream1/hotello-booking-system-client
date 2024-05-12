@@ -8,6 +8,7 @@ import MyBooking from "../pages/MyBooking/MyBooking";
 import Room from "../pages/Room/Room";
 import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
+import UpdateDate from "../pages/MyBooking/UpdateDate";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
             <MyBooking />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/updateDate",
+        element: <UpdateDate />,
       },
     ],
   },
