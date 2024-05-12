@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 
 const Room = () => {
   const [allRoom, setAllRoom] = useState([]);
+  const navigate = useNavigate();
   const { loading } = useAuth();
 
   useEffect(() => {
@@ -12,7 +13,6 @@ const Room = () => {
       setAllRoom(res.data);
     });
   }, []);
-  const navigate = useNavigate();
 
   if (loading) return;
     
