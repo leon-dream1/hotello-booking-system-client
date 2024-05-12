@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Register = () => {
   const {
@@ -24,6 +25,14 @@ const Register = () => {
           .then(() => {
             setUser(result.user);
             setLoading(false);
+            axios
+              .post(
+                "http://localhost:5000/jwt",
+                { email: email },
+                { withCredentials: true }
+              )
+              .then((res) => console.log(res.data));
+
             toast.success("Update is saved successfully......");
             navigate("/");
           })

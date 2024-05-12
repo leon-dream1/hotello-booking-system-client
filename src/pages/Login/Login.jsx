@@ -5,6 +5,7 @@ import { FaFacebook } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -26,12 +27,20 @@ const Login = () => {
           email: "",
           password: "",
         });
+        axios
+          .post(
+            "http://localhost:5000/jwt",
+            { email },
+            { withCredentials: true }
+          )
+          .then((res) => console.log(res.data));
+
         navigate(location.state ? location.state : "/");
       })
       .catch((error) => {
         console.log(error.code);
         setError("Password is Not matching");
-        // toast.error("password is incorrect");
+        toast.error("password is incorrect");
       });
   };
 
@@ -40,6 +49,13 @@ const Login = () => {
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
         toast.success("Log in successfully.........");
+        axios
+          .post(
+            "http://localhost:5000/jwt",
+            { email: result.user.email },
+            { withCredentials: true }
+          )
+          .then((res) => console.log(res.data));
         navigate(location.state ? location.state : "/");
       })
       .catch((err) => {
@@ -52,6 +68,13 @@ const Login = () => {
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
         toast.success("Log in successfully.........");
+        axios
+          .post(
+            "http://localhost:5000/jwt",
+            { email: result.user.email },
+            { withCredentials: true }
+          )
+          .then((res) => console.log(res.data));
         navigate(location.state ? location.state : "/");
       })
       .catch((err) => {

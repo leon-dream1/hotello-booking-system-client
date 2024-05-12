@@ -22,6 +22,7 @@ Modal.setAppElement("#root");
 
 const RoomDetails = () => {
   const selectedRoom = useLoaderData();
+  console.log(selectedRoom);
   const { user } = useAuth();
   const navigate = useNavigate();
   const [bookingDate, setBookingDate] = useState(new Date().toLocaleString());
@@ -124,12 +125,21 @@ const RoomDetails = () => {
               className="input input-bordered w-full font-semibold font-merriweather"
             />
           </div>
-          <button
-            onClick={handleBookButton}
-            className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
-          >
-            Book Now
-          </button>
+          {selectedRoom?.availability ? (
+            <button
+              onClick={handleBookButton}
+              className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
+            >
+              Book Now
+            </button>
+          ) : (
+            <button
+              disabled={true}
+              className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather"
+            >
+              Already Booked
+            </button>
+          )}
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}

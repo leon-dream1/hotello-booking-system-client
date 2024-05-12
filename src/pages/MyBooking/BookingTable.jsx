@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import { toast } from "react-toastify";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const customStyles = {
   content: {
@@ -22,6 +22,12 @@ Modal.setAppElement("#root");
 const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [bookingDate, setBookingDate] = useState(new Date());
+  const {
+    register,
+    handleSubmit,
+    reset,
+    // formState: { errors },
+  } = useForm();
 
   function openModal() {
     setIsOpen(true);
@@ -72,6 +78,22 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
       .catch((err) => console.log(err));
   };
 
+  //Review
+  const onSubmit = (data) => {
+    console.log("Form", data);
+    const reviewData = { ...data, date: new Date().toLocaleString() };
+    console.log(reviewData);
+    axios
+      .post(`http://localhost:5000/review?room_id=${data?.room_id}`, reviewData)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount) {
+          toast("Thank You for your Review!!");
+          reset();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <tr
       key={booking._id}
@@ -195,6 +217,73 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
             </div>
           </Modal>
         )} */}
+      </td>
+      <td className="p-3 ">
+        <span
+          onClick={() => document.getElementById("my_modal_3").showModal()}
+          className="px-4 py-2 font-semibold rounded-md bg-[#FFAC41] text-white cursor-pointer"
+        >
+          <span>Give Review</span>
+        </span>
+        <dialog id="my_modal_3" className="modal">
+          <div className="modal-box">
+            <form onSubmit={handleSubmit(onSubmit)} className="p-[50px]">
+              <div className="mb-4">
+                <input
+                  type="text"
+                  className="input input-bordered w-full"
+                  defaultValue={booking?.room_id}
+                  readOnly
+                  {...register("room_id")}
+                />
+              </div>
+
+              <div className="mb-4">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="input input-bordered w-full"
+                  defaultValue={booking?.displayName}
+                  readOnly
+                  {...register("name")}
+                />
+              </div>
+              <div className="mb-4">
+                <select
+                  {...register("rating")}
+                  className="input input-bordered w-full"
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div className="mb-4">
+                <input
+                  {...register("comment")}
+                  type="text"
+                  placeholder="Comment"
+                  required
+                  className="input input-bordered w-full"
+                />
+              </div>
+              <div>
+                <input
+                  type="submit"
+                  value="Submit"
+                  className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
+                />
+              </div>
+            </form>
+            <form method="dialog">
+              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                ✕
+              </button>
+            </form>
+          </div>
+        </dialog>
       </td>
     </tr>
   );

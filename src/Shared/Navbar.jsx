@@ -3,6 +3,7 @@ import logo from "/logo.svg";
 import useAuth from "../hooks/useAuth";
 import userIcon from "/user.png";
 import { Tooltip } from "react-tooltip";
+import axios from "axios";
 
 const Navbar = () => {
   const { user, logOut, setUser } = useAuth();
@@ -12,6 +13,9 @@ const Navbar = () => {
       // eslint-disable-next-line no-unused-vars
       .then((result) => {
         setUser("");
+        axios
+          .post("http://localhost:5000/logout", {email : user.email} , { withCredentials: true })
+          .then((res) => console.log(res.data));
       })
       .catch((error) => console.log(error));
   };

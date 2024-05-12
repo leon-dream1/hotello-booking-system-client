@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-// import { toast } from "react-toastify";
-
-// import UpdateModal from "./UpdateModal";
 import BookingTable from "./BookingTable";
 
 const MyBooking = () => {
@@ -12,7 +9,7 @@ const MyBooking = () => {
 
   const getData = () => {
     axios
-      .get(`http://localhost:5000/booking/${user.email}`)
+      .get(`http://localhost:5000/booking/${user.email}`, {withCredentials: true})
       .then((res) => {
         setMyBooking(res.data);
       })
@@ -44,8 +41,9 @@ const MyBooking = () => {
                 <th className="p-3">Price</th>
                 <th className="p-3">Size</th>
                 <th className="p-3">Date</th>
-                <th className="p-3"></th>
-                <th className="p-3"></th>
+                <th className="p-3">Action</th>
+                <th className="p-3">Action</th>
+                <th className="p-3">Review</th>
               </tr>
             </thead>
             <tbody>

@@ -37,6 +37,7 @@ const SingleFeaturedRoom = ({ room, featuredRoom }) => {
     price_per_night,
     review,
     description,
+    availability,
   } = room;
 
   function openModal() {
@@ -106,12 +107,21 @@ const SingleFeaturedRoom = ({ room, featuredRoom }) => {
           Total Review:
           <span className="text-[#FFAC41]">{review}</span>{" "}
         </p>
-        <button
-          onClick={handleBookButton}
-          className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
-        >
-          Book Now
-        </button>
+        {availability ? (
+          <button
+            onClick={handleBookButton}
+            className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
+          >
+            Book Now
+          </button>
+        ) : (
+          <button
+            disabled={true}
+            className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather"
+          >
+            Already Booked
+          </button>
+        )}
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
