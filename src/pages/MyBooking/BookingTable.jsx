@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import { toast } from "react-toastify";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const customStyles = {
   content: {
@@ -22,12 +22,7 @@ Modal.setAppElement("#root");
 const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [bookingDate, setBookingDate] = useState(new Date());
-  const {
-    register,
-    handleSubmit,
-    reset,
-    // formState: { errors },
-  } = useForm();
+  const navigate = useNavigate();
 
   function openModal() {
     setIsOpen(true);
@@ -36,8 +31,8 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
     setIsOpen(false);
   }
 
-  const handleUpdate = (id, prevDate) => {
-    console.log(id, prevDate, bookingDate);
+  const handleUpdate = (id, roomId, prevDate) => {
+    console.log(id, roomId, prevDate, bookingDate);
     if (
       new Date(prevDate).toLocaleString() ===
       new Date(bookingDate).toLocaleString()
@@ -78,22 +73,7 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
       .catch((err) => console.log(err));
   };
 
-  //Review
-  const onSubmit = (data) => {
-    console.log("Form", data);
-    const reviewData = { ...data, date: new Date().toLocaleString() };
-    console.log(reviewData);
-    axios
-      .post(`http://localhost:5000/review?room_id=${data?.room_id}`, reviewData)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.modifiedCount) {
-          toast("Thank You for your Review!!");
-          reset();
-        }
-      })
-      .catch((err) => console.log(err));
-  };
+  
   return (
     <tr
       key={booking._id}
@@ -141,7 +121,9 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
               />
               <div className="flex flex-row gap-4 pt-4">
                 <button
-                  onClick={() => handleUpdate(booking?._id, booking?.date)}
+                  onClick={() =>
+                    handleUpdate(booking?._id, booking?.room_id, booking?.date)
+                  }
                   className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
                 >
                   Update
@@ -177,7 +159,6 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
                       Yes
                     </button>
                     <form method="dialog w-full">
-                      {/* if there is a button in form, it will close the modal */}
                       <button className="input input-bordered w-full bg-red-700 text-white text-[22px] font-semibold font-merriweather cursor-pointer">
                         No
                       </button>
@@ -188,71 +169,32 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
             </div>
           </div>
         </dialog>
-        {/* {deleteModalOpen && (
-          <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            style={customStyles}
-          >
-            <div className="mt-4">
-              <div className="mt-6">
-                <h4 className="text-[25px] font-von mb-5">
-                  Are you sure to Cancel the Booking????
-                </h4>
-                <div className="flex flex-row gap-4">
-                  <button
-                    onClick={() => handleDelete(booking?._id, booking?.room_id)}
-                    className="input input-bordered w-1/2 bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
-                  >
-                    Yes
-                  </button>
-                  <button
-                    onClick={closeModal}
-                    className="input input-bordered w-1/2 bg-red-700 text-white text-[22px] font-semibold font-merriweather cursor-pointer"
-                  >
-                    No
-                  </button>
-                </div>
-              </div>
-            </div>
-          </Modal>
-        )} */}
       </td>
       <td className="p-3 ">
         <span
-          onClick={() => document.getElementById("my_modal_3").showModal()}
+          onClick={() => navigate(`/review/${booking?.room_id}`)}
           className="px-4 py-2 font-semibold rounded-md bg-[#FFAC41] text-white cursor-pointer"
         >
           <span>Give Review</span>
         </span>
-        <dialog id="my_modal_3" className="modal">
+        {/* <dialog id="my_modal_3" className="modal">
           <div className="modal-box">
-            <form onSubmit={handleSubmit(onSubmit)} className="p-[50px]">
-              <div className="mb-4">
-                <input
-                  type="text"
-                  className="input input-bordered w-full"
-                  defaultValue={booking?.room_id}
-                  readOnly
-                  {...register("room_id")}
-                />
-              </div>
-
+            <form
+              onSubmit={(e) => handleSubmit(e, booking?.room_id)}
+              className="p-[50px]"
+            >
               <div className="mb-4">
                 <input
                   type="text"
                   placeholder="Your Name"
                   className="input input-bordered w-full"
                   defaultValue={booking?.displayName}
+                  name="name"
                   readOnly
-                  {...register("name")}
                 />
               </div>
               <div className="mb-4">
-                <select
-                  {...register("rating")}
-                  className="input input-bordered w-full"
-                >
+                <select className="input input-bordered w-full">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -262,10 +204,10 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
               </div>
               <div className="mb-4">
                 <input
-                  {...register("comment")}
                   type="text"
                   placeholder="Comment"
                   required
+                  name="comment"
                   className="input input-bordered w-full"
                 />
               </div>
@@ -277,13 +219,9 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
                 />
               </div>
             </form>
-            <form method="dialog">
-              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                ✕
-              </button>
-            </form>
+           
           </div>
-        </dialog>
+        </dialog> */}
       </td>
     </tr>
   );

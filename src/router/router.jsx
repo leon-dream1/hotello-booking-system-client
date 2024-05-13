@@ -8,6 +8,7 @@ import MyBooking from "../pages/MyBooking/MyBooking";
 import Room from "../pages/Room/Room";
 import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
+import ReviewFromUser from "../pages/Home/ReviewFromUser/ReviewFromUser";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/allRoom",
         element: <Room />,
+      },
+      {
+        path: "/review/:roomId",
+        element: <ReviewFromUser />,
       },
       {
         path: "/room/:id",

@@ -18,6 +18,7 @@ const MyBooking = () => {
   useEffect(() => {
     getData();
   }, []);
+  console.log("booking",myBooking);
   return (
     <div>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
