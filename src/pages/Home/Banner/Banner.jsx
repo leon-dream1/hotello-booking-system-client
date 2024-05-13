@@ -16,6 +16,7 @@ import { CgGym } from "react-icons/cg";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import SpecialOffer from "../SpecialOffer/SpecialOffer";
 
 const Banner = () => {
   return (
@@ -32,8 +33,9 @@ const Banner = () => {
       modules={[Navigation, Pagination, Autoplay]}
       slidesPerView={1}
     >
+      <SpecialOffer />
       <SwiperSlide>
-        <div className={`h-[800px] bg-bgImg1 bg-no-repeat bg-cover`}>
+        <div className={`h-[800px] bg-bgImg1 bg-no-repeat bg-cover z-10`}>
           <div className="h-[800px] flex flex-col items-center justify-center bg-black opacity-70">
             <h1 className="text-[80px] font-von text-white font-extrabold">
               Welcome to <span className="text-[#FFAC41]">Hotello</span>
@@ -48,7 +50,7 @@ const Banner = () => {
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <MdEventAvailable size={50} />
                 <h4 className="text-[30px] font-merriweather font-bold">
-                 Special Events
+                  Special Events
                 </h4>
               </div>
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
@@ -87,7 +89,8 @@ const Banner = () => {
         <div className={`h-[800px] bg-bgImg1 bg-no-repeat bg-cover`}>
           <div className="h-[800px] flex flex-col items-center justify-center bg-black opacity-70">
             <h1 className="text-[80px] font-von text-white font-extrabold">
-              Enjoy <span className="text-[#FFAC41] font-von">The </span> Experience
+              Enjoy <span className="text-[#FFAC41] font-von">The </span>{" "}
+              Experience
             </h1>
             <div className="flex gap-8 space-x-[80px] mt-[50px]">
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">

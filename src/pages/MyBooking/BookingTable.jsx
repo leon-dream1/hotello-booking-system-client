@@ -75,42 +75,36 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
 
     // Calculate the cancellation date (1 day before the booked date)
     const cancellationDate = bookedDate.clone().subtract(1, "days");
-    console.log(cancellationDate);
+    console.log(cancellationDate); //12
 
     // Get today's date
     const todayDate = moment();
-    console.log(todayDate);
+    console.log(todayDate); //14
 
     // Check if cancellation date is before today's date
     const isCancelable = cancellationDate.isSameOrAfter(todayDate);
     console.log(isCancelable);
 
-    // const todayDate = new Date().toLocaleString();
-    // console.log("today", todayDate);
-
-    // const bookedDate = moment(bookingDate);
-    // console.log(bookedDate);
-
-    // const cancelDate = bookedDate.subtract(1, "days");
-    // const bookingCancelDate = new Date(cancelDate._d).toLocaleString();
-    // console.log("cancel", bookingCancelDate);
-
-    // const isTodayDateBeforeCancelDate = bookingCancelDate.isBefore(todayDate);
-    // console.log(isTodayDateBeforeCancelDate);
-
-    axios
-      .delete(`http://localhost:5000/booking/${id}?room_id=${roomId}`)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.modifiedCount) {
-          // Update Ui
-          const remaining = myBooking.filter((booking) => booking?._id !== id);
-          setMyBooking(remaining);
-          toast.success("You have just Canceled the Booking!!!!");
-          closeCancelModal();
-        }
-      })
-      .catch((err) => console.log(err));
+    if (isCancelable) {
+      axios
+        .delete(`http://localhost:5000/booking/${id}?room_id=${roomId}`)
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.modifiedCount) {
+            // Update Ui
+            const remaining = myBooking.filter(
+              (booking) => booking?._id !== id
+            );
+            setMyBooking(remaining);
+            toast.success("You have just Canceled the Booking!!!!");
+            closeCancelModal();
+          }
+        })
+        .catch((err) => console.log(err));
+    } else {
+      toast.error("Sorry!!! You can not cancel the booking");
+      closeCancelModal();
+    }
   };
 
   return (
