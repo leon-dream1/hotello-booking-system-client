@@ -1,14 +1,31 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const ReviewFromUser = () => {
   const { roomId } = useParams();
   const { user } = useAuth();
-  console.log(roomId);
+  console.log("roomid", roomId);
+  const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/checkBookingForReview/${roomId}`)
+      .then((res) => {
+        console.log(res.data);
+        if (!res.data.success) {
+          toast(
+            "Sorry!!!!! You can not give a review..Please Book a Room First"
+          );
+          navigate("/");
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [roomId]);
 
   //Review
   const onSubmit = (data) => {
@@ -30,7 +47,7 @@ const ReviewFromUser = () => {
   return (
     <div className="container mx-auto mt-[100px]">
       <h4 className="text-[30px] text-center font-von text-[#FFAC41]">
-        Give You valuable Review here
+        Give Your valuable Review here
       </h4>
       <form onSubmit={handleSubmit(onSubmit)} className="p-[50px]">
         <div className="mb-4">

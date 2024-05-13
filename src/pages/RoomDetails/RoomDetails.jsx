@@ -180,6 +180,11 @@ const RoomDetails = () => {
               </div>
             </div>
           </Modal>
+          <button 
+          onClick={() => navigate(`/review/${selectedRoom?.room_id}`)}
+          className="mt-5 input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather">
+            Give a Review
+          </button>
         </div>
       </div>
     </div>
