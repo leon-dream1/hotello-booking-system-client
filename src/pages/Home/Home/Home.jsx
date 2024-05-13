@@ -1,7 +1,7 @@
 import Banner from "../Banner/Banner";
 import FeaturedRoom from "../FeaturedRoom/FeaturedRoom";
 import HotelLocation from "../HotelLocation/HotelLocation";
-import Review from "../Review/Review";
+import Review from "../UserReview/UserReview";
 
 const Home = () => {
   return (

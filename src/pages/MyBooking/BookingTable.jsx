@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const customStyles = {
   content: {
@@ -20,16 +21,27 @@ Modal.setAppElement("#root");
 
 /* eslint-disable react/prop-types */
 const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  // const [modalIsOpen, setIsOpen] = useState(false);
+  const [updateModalIsOpen, setUpdateModalIsOpen] = useState(false);
+  const [cancelModalIsOpen, setCancelModalIsOpen] = useState(false);
   const [bookingDate, setBookingDate] = useState(new Date());
   const navigate = useNavigate();
 
-  function openModal() {
-    setIsOpen(true);
-  }
-  function closeModal() {
-    setIsOpen(false);
-  }
+  const openUpdateModal = () => {
+    setUpdateModalIsOpen(true);
+  };
+
+  const closeUpdateModal = () => {
+    setUpdateModalIsOpen(false);
+  };
+
+  const openCancelModal = () => {
+    setCancelModalIsOpen(true);
+  };
+
+  const closeCancelModal = () => {
+    setCancelModalIsOpen(false);
+  };
 
   const handleUpdate = (id, roomId, prevDate) => {
     console.log(id, roomId, prevDate, bookingDate);
@@ -38,10 +50,10 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
       new Date(bookingDate).toLocaleString()
     ) {
       toast.error("You have choose the same date!!!!!");
-      closeModal();
+      closeUpdateModal();
     } else if (!bookingDate) {
       toast.error("You have choose the same date!!!!!");
-      closeModal();
+      closeUpdateModal();
     } else {
       axios
         .patch(`http://localhost:5000/booking/${id}`, {
@@ -50,14 +62,42 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
         .then((res) => {
           if (res.data.modifiedCount) {
             toast.success("Date is updated Successfully..........");
-            closeModal();
+            closeUpdateModal();
             getData();
           }
         });
     }
   };
 
-  const handleDelete = (id, roomId) => {
+  const handleDelete = (id, roomId, bookingDate) => {
+    console.log(id, roomId, bookingDate);
+    const bookedDate = moment(bookingDate); // Assuming the booked date is '9/11/2024'
+
+    // Calculate the cancellation date (1 day before the booked date)
+    const cancellationDate = bookedDate.clone().subtract(1, "days");
+    console.log(cancellationDate);
+
+    // Get today's date
+    const todayDate = moment();
+    console.log(todayDate);
+
+    // Check if cancellation date is before today's date
+    const isCancelable = cancellationDate.isSameOrAfter(todayDate);
+    console.log(isCancelable);
+
+    // const todayDate = new Date().toLocaleString();
+    // console.log("today", todayDate);
+
+    // const bookedDate = moment(bookingDate);
+    // console.log(bookedDate);
+
+    // const cancelDate = bookedDate.subtract(1, "days");
+    // const bookingCancelDate = new Date(cancelDate._d).toLocaleString();
+    // console.log("cancel", bookingCancelDate);
+
+    // const isTodayDateBeforeCancelDate = bookingCancelDate.isBefore(todayDate);
+    // console.log(isTodayDateBeforeCancelDate);
+
     axios
       .delete(`http://localhost:5000/booking/${id}?room_id=${roomId}`)
       .then((res) => {
@@ -67,13 +107,12 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
           const remaining = myBooking.filter((booking) => booking?._id !== id);
           setMyBooking(remaining);
           toast.success("You have just Canceled the Booking!!!!");
-          closeModal();
+          closeCancelModal();
         }
       })
       .catch((err) => console.log(err));
   };
 
-  
   return (
     <tr
       key={booking._id}
@@ -96,15 +135,15 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
       </td>
       <td className="p-3">
         <span
-          onClick={openModal}
+          onClick={openUpdateModal}
           className="px-4 py-2 font-semibold rounded-md bg-blue-700 text-white cursor-pointer"
         >
           <span>Update</span>
         </span>
 
         <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
+          isOpen={updateModalIsOpen}
+          onRequestClose={closeUpdateModal}
           style={customStyles}
         >
           <div className="mt-4 py-[130px] px-[50px]">
@@ -135,12 +174,17 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
       </td>
       <td className="p-3">
         <span
-          onClick={() => document.getElementById("my_modal_5").showModal()}
+          onClick={openCancelModal}
+          // onClick={() => document.getElementById("my_modal_5").showModal()}
           className="px-4 py-2 font-semibold rounded-md bg-red-700 text-white cursor-pointer"
         >
           <span>Cancel</span>
         </span>
-        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <Modal
+          isOpen={cancelModalIsOpen}
+          onRequestClose={closeCancelModal}
+          style={customStyles}
+        >
           <div className="modal-box">
             <h3 className="font-bold text-lg">Hello!</h3>
             <div className="py-4">
@@ -152,7 +196,45 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
                   <div className="flex flex-row gap-4">
                     <button
                       onClick={() =>
-                        handleDelete(booking?._id, booking?.room_id)
+                        handleDelete(
+                          booking?._id,
+                          booking?.room_id,
+                          booking?.date
+                        )
+                      }
+                      className="input input-bordered w-1/2 bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
+                    >
+                      Yes
+                    </button>
+                    <button
+                      onClick={closeCancelModal}
+                      className="input input-bordered w-full bg-red-700 text-white text-[22px] font-semibold font-merriweather cursor-pointer"
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
+        {/* <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg">Hello!</h3>
+            <div className="py-4">
+              <div className="mt-4">
+                <div className="mt-6">
+                  <h4 className="text-[25px] font-von mb-5">
+                    Are you sure to Cancel the Booking????
+                  </h4>
+                  <div className="flex flex-row gap-4">
+                    <button
+                      onClick={() =>
+                        handleDelete(
+                          booking?._id,
+                          booking?.room_id,
+                          booking?.date
+                        )
                       }
                       className="input input-bordered w-1/2 bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
                     >
@@ -168,7 +250,7 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
               </div>
             </div>
           </div>
-        </dialog>
+        </dialog> */}
       </td>
       <td className="p-3 ">
         <span
@@ -177,51 +259,6 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
         >
           <span>Give Review</span>
         </span>
-        {/* <dialog id="my_modal_3" className="modal">
-          <div className="modal-box">
-            <form
-              onSubmit={(e) => handleSubmit(e, booking?.room_id)}
-              className="p-[50px]"
-            >
-              <div className="mb-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="input input-bordered w-full"
-                  defaultValue={booking?.displayName}
-                  name="name"
-                  readOnly
-                />
-              </div>
-              <div className="mb-4">
-                <select className="input input-bordered w-full">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </div>
-              <div className="mb-4">
-                <input
-                  type="text"
-                  placeholder="Comment"
-                  required
-                  name="comment"
-                  className="input input-bordered w-full"
-                />
-              </div>
-              <div>
-                <input
-                  type="submit"
-                  value="Submit"
-                  className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
-                />
-              </div>
-            </form>
-           
-          </div>
-        </dialog> */}
       </td>
     </tr>
   );

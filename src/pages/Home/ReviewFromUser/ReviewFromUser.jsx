@@ -28,7 +28,10 @@ const ReviewFromUser = () => {
   };
 
   return (
-    <div>
+    <div className="container mx-auto mt-[100px]">
+      <h4 className="text-[30px] text-center font-von text-[#FFAC41]">
+        Give You valuable Review here
+      </h4>
       <form onSubmit={handleSubmit(onSubmit)} className="p-[50px]">
         <div className="mb-4">
           <input
