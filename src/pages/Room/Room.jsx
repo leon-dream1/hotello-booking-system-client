@@ -5,20 +5,64 @@ import useAuth from "../../hooks/useAuth";
 
 const Room = () => {
   const [allRoom, setAllRoom] = useState([]);
+  // const [minPrice, setMinPrice] = useState(null);
+  // const [maxPrice, setMaxPrice] = useState(null);
   const navigate = useNavigate();
   const { loading } = useAuth();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/room").then((res) => {
+    axios.get(`http://localhost:5000/room`).then((res) => {
       setAllRoom(res.data);
     });
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const minPrice = form.min.value;
+    const maxPrice = form.max.value;
+    console.log(minPrice, maxPrice);
+    axios
+      .get(`http://localhost:5000/filterRoom?min=${minPrice}&max=${maxPrice}`)
+      .then((res) => {
+        setAllRoom(res.data);
+        form.reset();
+      });
+  };
+  console.log("after", allRoom);
   if (loading) return;
-    
+
   return (
-    <div className="container mx-auto mt-[100px]">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="container mx-auto mt-[50px]">
+      <form className="mt-[50px] w-[20%] mx-auto" onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <input
+            type="number"
+            name="min"
+            placeholder="Minimum Price"
+            className="input input-bordered w-full"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <input
+            type="number"
+            name="max"
+            placeholder="Maximum Price"
+            className="input input-bordered w-full"
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="submit"
+            value="Find"
+            className="input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
+          />
+        </div>
+      </form>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[50px]">
         {allRoom.map((room) => (
           <div
             key={room?._id}
