@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import BookingTable from "./BookingTable";
+import { Helmet } from "react-helmet";
 
 const MyBooking = () => {
   const { user } = useAuth();
@@ -9,7 +10,9 @@ const MyBooking = () => {
 
   const getData = () => {
     axios
-      .get(`http://localhost:5000/booking/${user.email}`, {withCredentials: true})
+      .get(`http://localhost:5000/booking/${user.email}`, {
+        withCredentials: true,
+      })
       .then((res) => {
         setMyBooking(res.data);
       })
@@ -18,10 +21,13 @@ const MyBooking = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log("booking",myBooking);
+  console.log("booking", myBooking);
   return (
     <div>
       <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
+        <Helmet>
+          <title>Booking</title>
+        </Helmet>
         <h2 className="mb-4 text-2xl font-semibold leading-tight">
           All Booking
         </h2>

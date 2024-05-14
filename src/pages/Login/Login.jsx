@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -90,6 +91,9 @@ const Login = () => {
         ></div>
 
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
+          <Helmet>
+            <title>Login</title>
+          </Helmet>
           <h1 className="text-center text-[20px] md:text-[30px] lg:text-[40px] font-inter text-slate-700 font-medium mb-[15px]">
             Login To Explore A Room
           </h1>

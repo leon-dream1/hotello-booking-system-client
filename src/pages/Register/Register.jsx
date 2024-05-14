@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const {
@@ -55,6 +56,9 @@ const Register = () => {
       ></div>
 
       <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
+        <Helmet>
+          <title>Register</title>
+        </Helmet>
         <p className="mt-3 text-xl text-center text-black mb-4">
           Welcome back!
         </p>

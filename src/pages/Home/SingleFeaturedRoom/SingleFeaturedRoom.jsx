@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
+import "animate.css";
 
 const customStyles = {
   content: {
@@ -57,9 +58,16 @@ const SingleFeaturedRoom = ({ room, featuredRoom }) => {
 
   const handleBooking = (id) => {
     const selectedFeaturedRoom = featuredRoom.find((room) => room._id === id);
-    // console.log(selectedFeaturedRoom);
+    console.log("select", selectedFeaturedRoom);
     const bookingData = {
-      ...selectedFeaturedRoom,
+      room_type: selectedFeaturedRoom.room_type,
+      room_id: selectedFeaturedRoom.room_id,
+      description: selectedFeaturedRoom.description,
+      price_per_night: selectedFeaturedRoom.price_per_night,
+      room_size: selectedFeaturedRoom.room_size,
+      review: selectedFeaturedRoom.review,
+      images: selectedFeaturedRoom.images,
+      special_offers: selectedFeaturedRoom.special_offers,
       date: bookingDate,
       email: user.email,
       displayName: user.displayName,
@@ -81,7 +89,7 @@ const SingleFeaturedRoom = ({ room, featuredRoom }) => {
   return (
     <div
       key={_id}
-      className="w-full max-w-md overflow-hidden bg-white rounded-lg shadow-lg"
+      className="w-full max-w-md overflow-hidden bg-white rounded-lg shadow-lg animate__animated animate__fadeInLeft animate__delay-1s"
     >
       <img
         className="object-cover w-full h-56 cursor-pointer"

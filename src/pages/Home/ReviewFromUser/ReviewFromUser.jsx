@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 const ReviewFromUser = () => {
   const { roomId } = useParams();
@@ -46,6 +47,9 @@ const ReviewFromUser = () => {
 
   return (
     <div className="container mx-auto mt-[100px]">
+      <Helmet>
+        <title>Review</title>
+      </Helmet>
       <h4 className="text-[30px] text-center font-von text-[#FFAC41]">
         Give Your valuable Review here
       </h4>

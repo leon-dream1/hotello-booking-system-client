@@ -2,11 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const Room = () => {
   const [allRoom, setAllRoom] = useState([]);
-  // const [minPrice, setMinPrice] = useState(null);
-  // const [maxPrice, setMaxPrice] = useState(null);
   const navigate = useNavigate();
   const { loading } = useAuth();
 
@@ -34,6 +33,9 @@ const Room = () => {
 
   return (
     <div className="container mx-auto mt-[50px]">
+      <Helmet>
+        <title>Room</title>
+      </Helmet>
       <form className="mt-[50px] w-[20%] mx-auto" onSubmit={handleSubmit}>
         <div className="mb-4">
           <input

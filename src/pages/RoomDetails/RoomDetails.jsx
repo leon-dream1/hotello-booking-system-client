@@ -6,6 +6,7 @@ import Modal from "react-modal";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const customStyles = {
   content: {
@@ -45,7 +46,6 @@ const RoomDetails = () => {
 
   const handleBooking = () => {
     const bookingData = {
-      // ...selectedRoom,
       room_type: selectedRoom.room_type,
       room_id: selectedRoom.room_id,
       description: selectedRoom.description,
@@ -77,6 +77,9 @@ const RoomDetails = () => {
 
   return (
     <div className="container mx-auto mt-[100px] lg:mt-[100px]">
+      <Helmet>
+        <title>Room Details Of {selectedRoom?._id}</title>
+      </Helmet>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center m-[20px] lg:m-0">
         <div>
           <img
@@ -180,9 +183,10 @@ const RoomDetails = () => {
               </div>
             </div>
           </Modal>
-          <button 
-          onClick={() => navigate(`/review/${selectedRoom?.room_id}`)}
-          className="mt-5 input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather">
+          <button
+            onClick={() => navigate(`/review/${selectedRoom?.room_id}`)}
+            className="mt-5 input input-bordered w-full bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather"
+          >
             Give a Review
           </button>
         </div>
