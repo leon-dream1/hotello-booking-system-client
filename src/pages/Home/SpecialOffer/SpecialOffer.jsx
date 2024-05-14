@@ -39,8 +39,6 @@ const SpecialOffer = () => {
     setIsOpen(false);
   };
 
-  console.log(offer.image_url);
-
   return (
     <div className="z-20">
       <Modal

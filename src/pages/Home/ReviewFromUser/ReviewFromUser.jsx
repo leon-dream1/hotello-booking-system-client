@@ -9,7 +9,6 @@ import { Helmet } from "react-helmet";
 const ReviewFromUser = () => {
   const { roomId } = useParams();
   const { user } = useAuth();
-  console.log("roomid", roomId);
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
 
@@ -17,7 +16,6 @@ const ReviewFromUser = () => {
     axios
       .get(`https://hotello-booking-system-server.vercel.app/checkBookingForReview/${roomId}`)
       .then((res) => {
-        console.log(res.data);
         if (!res.data.success) {
           toast(
             "Sorry!!!!! You can not give a review..Please Book a Room First"
@@ -30,13 +28,10 @@ const ReviewFromUser = () => {
 
   //Review
   const onSubmit = (data) => {
-    console.log(data);
     const reviewData = { ...data, date: new Date().toLocaleString() };
-    console.log(reviewData);
     axios
       .post(`https://hotello-booking-system-server.vercel.app/review?room_id=${data?.roomId}`, reviewData)
       .then((res) => {
-        console.log(res.data);
         if (res.data.modifiedCount) {
           toast("Thank You for your Review!!");
           reset();

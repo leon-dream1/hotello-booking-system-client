@@ -13,7 +13,6 @@ const Login = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
 
   const { logInWithEmailAndPassword, googleLogin, faceBookLogin } = useAuth();
 
@@ -34,12 +33,11 @@ const Login = () => {
             { email },
             { withCredentials: true }
           )
-          .then((res) => console.log(res.data));
+          .then(() => {} );
 
         navigate(location.state ? location.state : "/");
       })
-      .catch((error) => {
-        console.log(error.code);
+      .catch(() => {
         setError("Password is Not matching");
         toast.error("password is incorrect");
       });
@@ -75,7 +73,7 @@ const Login = () => {
             { email: result.user.email },
             { withCredentials: true }
           )
-          .then((res) => console.log(res.data));
+          .then(() => {});
         navigate(location.state ? location.state : "/");
       })
       .catch((err) => {

@@ -5,7 +5,7 @@ import { Navigate, useLocation } from "react-router-dom";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const location = useLocation();
-  console.log(loading);
+  
   if (loading)
     return (
       <div className="w-full max-w-lg mx-auto animate-pulse p-9 mt-[300px]">

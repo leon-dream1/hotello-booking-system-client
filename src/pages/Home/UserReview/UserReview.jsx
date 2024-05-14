@@ -11,7 +11,6 @@ const UserReview = () => {
     });
   }, []);
 
-  console.log(userReviews);
   return (
     <div className="container mx-auto mb-[50px]">
       <h1 className="text-[40px] text-[#FFAC41] text-center font-von mb-7">

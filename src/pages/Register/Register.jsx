@@ -32,7 +32,7 @@ const Register = () => {
                 { email: email },
                 { withCredentials: true }
               )
-              .then((res) => console.log(res.data));
+              .then(() => {});
 
             toast.success("Update is saved successfully......");
             navigate("/");

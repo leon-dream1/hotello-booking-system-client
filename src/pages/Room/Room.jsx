@@ -20,7 +20,6 @@ const Room = () => {
     const form = e.target;
     const minPrice = form.min.value;
     const maxPrice = form.max.value;
-    console.log(minPrice, maxPrice);
     axios
       .get(`https://hotello-booking-system-server.vercel.app/filterRoom?min=${minPrice}&max=${maxPrice}`)
       .then((res) => {
@@ -28,7 +27,6 @@ const Room = () => {
         form.reset();
       });
   };
-  console.log("after", allRoom);
   if (loading) return;
 
   return (

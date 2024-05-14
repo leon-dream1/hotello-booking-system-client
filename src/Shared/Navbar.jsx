@@ -15,7 +15,7 @@ const Navbar = () => {
         setUser("");
         axios
           .post("https://hotello-booking-system-server.vercel.app/logout", {email : user.email} , { withCredentials: true })
-          .then((res) => console.log(res.data));
+          .then(() => {});
       })
       .catch((error) => console.log(error));
   };

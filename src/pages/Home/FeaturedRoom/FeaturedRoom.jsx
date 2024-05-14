@@ -10,7 +10,6 @@ const FeaturedRoom = () => {
       setFeaturedRoom(res.data);
     });
   }, []);
-  console.log(featuredRoom);
 
   return (
     <div className="container mx-auto mt-[100px]">

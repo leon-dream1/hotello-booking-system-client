@@ -23,7 +23,6 @@ Modal.setAppElement("#root");
 
 const RoomDetails = () => {
   const selectedRoom = useLoaderData();
-  console.log(selectedRoom);
   const { user } = useAuth();
   const navigate = useNavigate();
   const [bookingDate, setBookingDate] = useState(new Date().toLocaleString());
@@ -66,7 +65,6 @@ const RoomDetails = () => {
         bookingData
       )
       .then((res) => {
-        console.log(res.data);
         if (res.data.modifiedCount) {
           closeModal();
           toast("Congratulation!!!! Room is Booked For you");

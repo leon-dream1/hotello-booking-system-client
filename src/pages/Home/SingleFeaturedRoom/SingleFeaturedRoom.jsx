@@ -58,7 +58,6 @@ const SingleFeaturedRoom = ({ room, featuredRoom }) => {
 
   const handleBooking = (id) => {
     const selectedFeaturedRoom = featuredRoom.find((room) => room._id === id);
-    console.log("select", selectedFeaturedRoom);
     const bookingData = {
       room_type: selectedFeaturedRoom.room_type,
       room_id: selectedFeaturedRoom.room_id,
@@ -77,7 +76,6 @@ const SingleFeaturedRoom = ({ room, featuredRoom }) => {
     axios
       .post(`https://hotello-booking-system-server.vercel.app/booking?id=${id}`, bookingData)
       .then((res) => {
-        console.log(res.data);
         if (res.data.modifiedCount) {
           closeModal();
           toast("Congratulation!!!! Room is Booked For you");

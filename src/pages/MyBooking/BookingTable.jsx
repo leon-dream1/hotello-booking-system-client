@@ -44,7 +44,6 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
   };
 
   const handleUpdate = (id, roomId, prevDate) => {
-    console.log(id, roomId, prevDate, bookingDate);
     if (
       new Date(prevDate).toLocaleString() ===
       new Date(bookingDate).toLocaleString()
@@ -70,26 +69,21 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
   };
 
   const handleDelete = (id, roomId, bookingDate) => {
-    console.log(id, roomId, bookingDate);
     const bookedDate = moment(bookingDate); // Assuming the booked date is '9/11/2024'
 
     // Calculate the cancellation date (1 day before the booked date)
     const cancellationDate = bookedDate.clone().subtract(1, "days");
-    console.log(cancellationDate); //12
 
     // Get today's date
     const todayDate = moment();
-    console.log(todayDate); //14
 
     // Check if cancellation date is before today's date
     const isCancelable = cancellationDate.isSameOrAfter(todayDate);
-    console.log(isCancelable);
 
     if (isCancelable) {
       axios
         .delete(`https://hotello-booking-system-server.vercel.app/booking/${id}?room_id=${roomId}`)
         .then((res) => {
-          console.log(res.data);
           if (res.data.modifiedCount) {
             // Update Ui
             const remaining = myBooking.filter(
