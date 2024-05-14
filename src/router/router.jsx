@@ -9,6 +9,7 @@ import Room from "../pages/Room/Room";
 import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
 import ReviewFromUser from "../pages/Home/ReviewFromUser/ReviewFromUser";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/allRoom",
