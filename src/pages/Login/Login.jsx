@@ -30,7 +30,7 @@ const Login = () => {
         });
         axios
           .post(
-            "http://localhost:5000/jwt",
+            "https://hotello-booking-system-server.vercel.app/jwt",
             { email },
             { withCredentials: true }
           )
@@ -52,7 +52,7 @@ const Login = () => {
         toast.success("Log in successfully.........");
         axios
           .post(
-            "http://localhost:5000/jwt",
+            "https://hotello-booking-system-server.vercel.app/jwt",
             { email: result.user.email },
             { withCredentials: true }
           )
@@ -71,7 +71,7 @@ const Login = () => {
         toast.success("Log in successfully.........");
         axios
           .post(
-            "http://localhost:5000/jwt",
+            "https://hotello-booking-system-server.vercel.app/jwt",
             { email: result.user.email },
             { withCredentials: true }
           )

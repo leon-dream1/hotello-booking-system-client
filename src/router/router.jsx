@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
         path: "/room/:id",
         element: <RoomDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/room/${params.id}`),
+          fetch(`https://hotello-booking-system-server.vercel.app/room/${params.id}`),
       },
       {
         path: "/myBooking",

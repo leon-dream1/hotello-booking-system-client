@@ -75,7 +75,7 @@ const SingleFeaturedRoom = ({ room, featuredRoom }) => {
     console.table(bookingData);
 
     axios
-      .post(`http://localhost:5000/booking?id=${id}`, bookingData)
+      .post(`https://hotello-booking-system-server.vercel.app/booking?id=${id}`, bookingData)
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount) {

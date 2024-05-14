@@ -56,7 +56,7 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
       closeUpdateModal();
     } else {
       axios
-        .patch(`http://localhost:5000/booking/${id}`, {
+        .patch(`https://hotello-booking-system-server.vercel.app/booking/${id}`, {
           date: new Date(bookingDate).toLocaleString(),
         })
         .then((res) => {
@@ -87,7 +87,7 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
 
     if (isCancelable) {
       axios
-        .delete(`http://localhost:5000/booking/${id}?room_id=${roomId}`)
+        .delete(`https://hotello-booking-system-server.vercel.app/booking/${id}?room_id=${roomId}`)
         .then((res) => {
           console.log(res.data);
           if (res.data.modifiedCount) {

@@ -6,7 +6,7 @@ const FeaturedRoom = () => {
   const [featuredRoom, setFeaturedRoom] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/room?limit=6`).then((res) => {
+    axios.get(`https://hotello-booking-system-server.vercel.app/room?limit=6`).then((res) => {
       setFeaturedRoom(res.data);
     });
   }, []);

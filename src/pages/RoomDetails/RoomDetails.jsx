@@ -62,7 +62,7 @@ const RoomDetails = () => {
 
     axios
       .post(
-        `http://localhost:5000/booking?id=${selectedRoom?._id}`,
+        `https://hotello-booking-system-server.vercel.app/booking?id=${selectedRoom?._id}`,
         bookingData
       )
       .then((res) => {

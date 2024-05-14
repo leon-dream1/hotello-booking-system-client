@@ -28,7 +28,7 @@ const Register = () => {
             setLoading(false);
             axios
               .post(
-                "http://localhost:5000/jwt",
+                "https://hotello-booking-system-server.vercel.app/jwt",
                 { email: email },
                 { withCredentials: true }
               )

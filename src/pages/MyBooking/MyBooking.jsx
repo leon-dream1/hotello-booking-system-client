@@ -10,7 +10,7 @@ const MyBooking = () => {
 
   const getData = () => {
     axios
-      .get(`http://localhost:5000/booking/${user.email}`, {
+      .get(`https://hotello-booking-system-server.vercel.app/booking/${user.email}`, {
         withCredentials: true,
       })
       .then((res) => {

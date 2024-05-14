@@ -15,7 +15,7 @@ const ReviewFromUser = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/checkBookingForReview/${roomId}`)
+      .get(`https://hotello-booking-system-server.vercel.app/checkBookingForReview/${roomId}`)
       .then((res) => {
         console.log(res.data);
         if (!res.data.success) {
@@ -34,7 +34,7 @@ const ReviewFromUser = () => {
     const reviewData = { ...data, date: new Date().toLocaleString() };
     console.log(reviewData);
     axios
-      .post(`http://localhost:5000/review?room_id=${data?.roomId}`, reviewData)
+      .post(`https://hotello-booking-system-server.vercel.app/review?room_id=${data?.roomId}`, reviewData)
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount) {

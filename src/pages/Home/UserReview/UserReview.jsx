@@ -6,7 +6,7 @@ const UserReview = () => {
   const [userReviews, setUserReviews] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/review").then((res) => {
+    axios.get("https://hotello-booking-system-server.vercel.app/review").then((res) => {
       setUserReviews(res.data);
     });
   }, []);

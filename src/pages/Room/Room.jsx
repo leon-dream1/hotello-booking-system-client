@@ -10,7 +10,7 @@ const Room = () => {
   const { loading } = useAuth();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/room`).then((res) => {
+    axios.get(`https://hotello-booking-system-server.vercel.app/room`).then((res) => {
       setAllRoom(res.data);
     });
   }, []);
@@ -22,7 +22,7 @@ const Room = () => {
     const maxPrice = form.max.value;
     console.log(minPrice, maxPrice);
     axios
-      .get(`http://localhost:5000/filterRoom?min=${minPrice}&max=${maxPrice}`)
+      .get(`https://hotello-booking-system-server.vercel.app/filterRoom?min=${minPrice}&max=${maxPrice}`)
       .then((res) => {
         setAllRoom(res.data);
         form.reset();
