@@ -73,7 +73,9 @@ const Login = () => {
             { email: result.user.email },
             { withCredentials: true }
           )
-          .then(() => {});
+          .then(() => {
+            
+          });
         navigate(location.state ? location.state : "/");
       })
       .catch((err) => {

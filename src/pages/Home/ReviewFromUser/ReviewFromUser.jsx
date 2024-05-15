@@ -11,7 +11,6 @@ const ReviewFromUser = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
-  console.log(user.email);
 
   useEffect(() => {
     axios
@@ -29,7 +28,7 @@ const ReviewFromUser = () => {
       })
       .catch((err) => console.log(err));
   }, [roomId]);
-
+  
   //Review
   const onSubmit = (data) => {
     const reviewData = { ...data, date: new Date().toLocaleString() };

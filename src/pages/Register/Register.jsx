@@ -32,10 +32,12 @@ const Register = () => {
                 { email: email },
                 { withCredentials: true }
               )
-              .then(() => {});
-
-            toast.success("Update is saved successfully......");
-            navigate("/");
+              .then((result) => {
+                setUser(result.user);
+                setLoading(false);
+                toast.success("Update is saved successfully......");
+                navigate("/");
+              });
           })
           .catch((error) => {
             console.log(error);
