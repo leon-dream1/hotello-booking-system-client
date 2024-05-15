@@ -1,10 +1,20 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const NewsLetter = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data.email);
+    const subscriberEmail = data.email;
+
+    axios.post('https://hotello-booking-system-server.vercel.app/subscriber', {subscriberEmail})
+    .then(res =>{
+      if(res.data.acknowledge){
+        toast.success('Thank You for subscription');
+      }
+    })
   };
 
   return (
