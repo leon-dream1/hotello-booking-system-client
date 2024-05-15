@@ -11,11 +11,15 @@ const ReviewFromUser = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
+  console.log(user.email);
 
   useEffect(() => {
     axios
-      .get(`https://hotello-booking-system-server.vercel.app/checkBookingForReview/${roomId}`)
+      .get(
+        `https://hotello-booking-system-server.vercel.app/checkBookingForReview/${roomId}?email=${user.email}`
+      )
       .then((res) => {
+        console.log(res.data);
         if (!res.data.success) {
           toast(
             "Sorry!!!!! You can not give a review..Please Book a Room First"
@@ -30,7 +34,10 @@ const ReviewFromUser = () => {
   const onSubmit = (data) => {
     const reviewData = { ...data, date: new Date().toLocaleString() };
     axios
-      .post(`https://hotello-booking-system-server.vercel.app/review?room_id=${data?.roomId}`, reviewData)
+      .post(
+        `https://hotello-booking-system-server.vercel.app/review?room_id=${data?.roomId}`,
+        reviewData
+      )
       .then((res) => {
         if (res.data.modifiedCount) {
           toast("Thank You for your Review!!");

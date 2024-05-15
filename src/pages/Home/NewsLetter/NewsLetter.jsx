@@ -10,7 +10,7 @@ const NewsLetter = () => {
     const subscriberEmail = { email: data.email };
 
     axios
-      .post("http://localhost:5000/subscriber", subscriberEmail)
+      .post("https://hotello-booking-system-server.vercel.app/subscriber", subscriberEmail)
       .then((res) => {
         console.log(res.data);
         if (res.data.acknowledged) {
