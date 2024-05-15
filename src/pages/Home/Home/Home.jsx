@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import FeaturedRoom from "../FeaturedRoom/FeaturedRoom";
 import HotelLocation from "../HotelLocation/HotelLocation";
 import Review from "../UserReview/UserReview";
+import NewsLetter from "../NewsLetter/NewsLetter";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Banner />
       <FeaturedRoom />
       <HotelLocation />
+      <NewsLetter />
       <Review />
     </div>
   );

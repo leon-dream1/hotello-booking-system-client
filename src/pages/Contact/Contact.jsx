@@ -10,7 +10,7 @@ const Contact = () => {
 
   return (
     <div className="container mx-auto">
-      <div className=" grid grid-cols-1 md:grid-cols-2 items-center pt-[50px] lg:pt-[150px] gap-8">
+      <div className=" grid grid-cols-1 lg:grid-cols-2 items-center pt-[50px] lg:pt-[150px] gap-8">
         <div className="p-[50px] lg:p-0">
           <p className="text-[#131313] font-von text-[18px] mb-[30px]">
             Waters midst. Creature man female. Them You’re female there his for
@@ -49,7 +49,7 @@ const Contact = () => {
               <input
                 type="submit"
                 value="Send Message"
-                className="input input-bordered w-1/2 bg-[#C19B76] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
+                className="input input-bordered w-full bg-[#C19B76] text-white text-[20px] font-semibold font-merriweather cursor-pointer"
               />
             </div>
           </form>

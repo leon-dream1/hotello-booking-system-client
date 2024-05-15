@@ -23,60 +23,7 @@ const Navbar = () => {
       })
       .catch((error) => console.log(error));
   };
-  const links = (
-    <>
-      <NavLink
-        className={({ isActive }) =>
-          isActive
-            ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] text-[#131313] font-merriweather font-medium"
-        }
-        to="/"
-      >
-        Home
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          isActive
-            ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] text-[#131313] font-merriweather font-medium"
-        }
-        to="/allRoom"
-      >
-        Rooms
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          isActive
-            ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] text-[#131313] font-merriweather font-medium"
-        }
-        to="/myBooking"
-      >
-        My Booking
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          isActive
-            ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] text-[#131313] font-merriweather font-medium"
-        }
-        to="/about"
-      >
-        About Us
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          isActive
-            ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] text-[#131313] font-merriweather font-medium"
-        }
-        to="/contact"
-      >
-        Contact Us
-      </NavLink>
-    </>
-  );
+
   return (
     <div className="bg-[#333333] lg:p-2">
       <div className="container mx-auto">
@@ -107,16 +54,114 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52 space-y-2 lg:space-y-0"
               >
-                {links}
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                      : "text-[20px] text-[#131313] font-merriweather font-medium"
+                  }
+                  to="/"
+                >
+                  Home
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                      : "text-[20px] text-[#131313] font-merriweather font-medium"
+                  }
+                  to="/allRoom"
+                >
+                  Rooms
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                      : "text-[20px] text-[#131313] font-merriweather font-medium"
+                  }
+                  to="/myBooking"
+                >
+                  My Booking
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                      : "text-[20px] text-[#131313] font-merriweather font-medium"
+                  }
+                  to="/about"
+                >
+                  About Us
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                      : "text-[20px] text-[#131313] font-merriweather font-medium"
+                  }
+                  to="/contact"
+                >
+                  Contact Us
+                </NavLink>
               </ul>
             </div>
             <Link to="/" className="cursor-pointer">
-              <img src={logo} alt="" className="w-[80%] md:w-[70%]" />
+              <img src={logo} alt="" className="w-[80%] md:w-[60%]" />
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 space-x-10 text-white">
-              {links}
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                    : "text-[20px] text-white font-merriweather font-medium"
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                    : "text-[20px] text-white font-merriweather font-medium"
+                }
+                to="/allRoom"
+              >
+                Rooms
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                    : "text-[20px] text-white font-merriweather font-medium"
+                }
+                to="/myBooking"
+              >
+                My Booking
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                    : "text-[20px] text-white font-merriweather font-medium"
+                }
+                to="/about"
+              >
+                About Us
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                    : "text-[20px] text-white font-merriweather font-medium"
+                }
+                to="/contact"
+              >
+                Contact Us
+              </NavLink>
             </ul>
           </div>
           <div className="navbar-end">
