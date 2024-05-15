@@ -3,18 +3,21 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
 const NewsLetter = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
     console.log(data.email);
-    const subscriberEmail = data.email;
+    const subscriberEmail = { email: data.email };
 
-    axios.post('https://hotello-booking-system-server.vercel.app/subscriber', {subscriberEmail})
-    .then(res =>{
-      if(res.data.acknowledge){
-        toast.success('Thank You for subscription');
-      }
-    })
+    axios
+      .post("http://localhost:5000/subscriber", subscriberEmail)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.acknowledged) {
+          toast.success("Thank You for subscription");
+          reset()
+        }
+      });
   };
 
   return (
