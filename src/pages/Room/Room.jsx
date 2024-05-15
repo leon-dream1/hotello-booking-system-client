@@ -34,7 +34,7 @@ const Room = () => {
       <Helmet>
         <title>Room</title>
       </Helmet>
-      <form className="mt-[50px] w-[20%] mx-auto" onSubmit={handleSubmit}>
+      <form className="mt-[50px] w-[80%] lg:w-[20%] mx-auto" onSubmit={handleSubmit}>
         <div className="mb-4">
           <input
             type="number"
@@ -62,7 +62,7 @@ const Room = () => {
         </div>
       </form>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[50px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[50px] m-4 lg:m-0">
         {allRoom.map((room) => (
           <div
             key={room?._id}

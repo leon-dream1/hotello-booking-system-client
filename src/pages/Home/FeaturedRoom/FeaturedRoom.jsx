@@ -13,10 +13,10 @@ const FeaturedRoom = () => {
 
   return (
     <div className="container mx-auto mt-[100px]">
-      <h2 className="text-[#FFAC41] text-center font-von text-[50px]">
+      <h2 className="text-[#FFAC41] text-center font-von text-[25px] lg:text-[50px]">
         Featured Room
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[50px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-[50px] m-4 lg:m-0">
         {featuredRoom.map((room) => (
           <SingleFeaturedRoom key={room._id} room={room} featuredRoom={featuredRoom} />
         ))}

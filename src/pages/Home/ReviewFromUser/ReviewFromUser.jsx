@@ -45,7 +45,7 @@ const ReviewFromUser = () => {
       <Helmet>
         <title>Review</title>
       </Helmet>
-      <h4 className="text-[30px] text-center font-von text-[#FFAC41]">
+      <h4 className="text-[25px] lg:text-[30px] text-center font-von text-[#FFAC41]">
         Give Your valuable Review here
       </h4>
       <form onSubmit={handleSubmit(onSubmit)} className="p-[50px]">

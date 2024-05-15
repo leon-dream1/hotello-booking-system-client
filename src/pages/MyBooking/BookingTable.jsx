@@ -55,9 +55,12 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
       closeUpdateModal();
     } else {
       axios
-        .patch(`https://hotello-booking-system-server.vercel.app/booking/${id}`, {
-          date: new Date(bookingDate).toLocaleString(),
-        })
+        .patch(
+          `https://hotello-booking-system-server.vercel.app/booking/${id}`,
+          {
+            date: new Date(bookingDate).toLocaleString(),
+          }
+        )
         .then((res) => {
           if (res.data.modifiedCount) {
             toast.success("Date is updated Successfully..........");
@@ -82,7 +85,9 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
 
     if (isCancelable) {
       axios
-        .delete(`https://hotello-booking-system-server.vercel.app/booking/${id}?room_id=${roomId}`)
+        .delete(
+          `https://hotello-booking-system-server.vercel.app/booking/${id}?room_id=${roomId}`
+        )
         .then((res) => {
           if (res.data.modifiedCount) {
             // Update Ui
@@ -206,46 +211,13 @@ const BookingTable = ({ booking, idx, myBooking, setMyBooking, getData }) => {
             </div>
           </div>
         </Modal>
-        {/* <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <div className="py-4">
-              <div className="mt-4">
-                <div className="mt-6">
-                  <h4 className="text-[25px] font-von mb-5">
-                    Are you sure to Cancel the Booking????
-                  </h4>
-                  <div className="flex flex-row gap-4">
-                    <button
-                      onClick={() =>
-                        handleDelete(
-                          booking?._id,
-                          booking?.room_id,
-                          booking?.date
-                        )
-                      }
-                      className="input input-bordered w-1/2 bg-[#425CEC] text-white text-[22px] font-semibold font-merriweather cursor-pointer"
-                    >
-                      Yes
-                    </button>
-                    <form method="dialog w-full">
-                      <button className="input input-bordered w-full bg-red-700 text-white text-[22px] font-semibold font-merriweather cursor-pointer">
-                        No
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </dialog> */}
       </td>
-      <td className="p-3 ">
+      <td className="p-3">
         <span
           onClick={() => navigate(`/review/${booking?.room_id}`)}
           className="px-4 py-2 font-semibold rounded-md bg-[#FFAC41] text-white cursor-pointer"
         >
-          <span>Give Review</span>
+          <span>Review</span>
         </span>
       </td>
     </tr>

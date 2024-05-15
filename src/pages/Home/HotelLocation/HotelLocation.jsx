@@ -6,7 +6,7 @@ const HotelLocation = () => {
 
   return (
     <div className="container mx-auto my-[100px]">
-      <h2 className="text-[#FFAC41] text-center font-von text-[50px]">
+      <h2 className="text-[#FFAC41] text-center font-von text-[25px] lg:text-[50px]">
         Find Us
       </h2>
       <MapContainer

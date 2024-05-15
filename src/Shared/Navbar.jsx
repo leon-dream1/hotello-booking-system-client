@@ -14,7 +14,11 @@ const Navbar = () => {
       .then((result) => {
         setUser("");
         axios
-          .post("https://hotello-booking-system-server.vercel.app/logout", {email : user.email} , { withCredentials: true })
+          .post(
+            "https://hotello-booking-system-server.vercel.app/logout",
+            { email: user.email },
+            { withCredentials: true }
+          )
           .then(() => {});
       })
       .catch((error) => console.log(error));
@@ -25,7 +29,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] font-merriweather font-medium"
+            : "text-[20px] text-[#131313] font-merriweather font-medium"
         }
         to="/"
       >
@@ -35,7 +39,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] font-merriweather font-medium"
+            : "text-[20px] text-[#131313] font-merriweather font-medium"
         }
         to="/allRoom"
       >
@@ -45,7 +49,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] font-merriweather font-medium"
+            : "text-[20px] text-[#131313] font-merriweather font-medium"
         }
         to="/myBooking"
       >
@@ -55,7 +59,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] font-merriweather font-medium"
+            : "text-[20px] text-[#131313] font-merriweather font-medium"
         }
         to="/about"
       >
@@ -65,7 +69,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
-            : "text-[20px] font-merriweather font-medium"
+            : "text-[20px] text-[#131313] font-merriweather font-medium"
         }
         to="/contact"
       >
@@ -101,7 +105,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52"
+                className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52 space-y-2 lg:space-y-0"
               >
                 {links}
               </ul>
@@ -159,16 +163,16 @@ const Navbar = () => {
                 </button>
               </div>
             ) : (
-              <div className="hidden lg:flex space-x-6">
+              <div className="flex space-x-4 lg:space-x-6">
                 <button
                   onClick={() => navigate("/login")}
-                  className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px] rounded-md font-merriweather"
+                  className="bg-blue-600 text-white text-[18px] px-[15px] lg:px-[25px] py-[5px] lg:py-[15px] rounded-md font-merriweather"
                 >
                   Login
                 </button>
                 <button
                   onClick={() => navigate("/register")}
-                  className="bg-blue-600 text-white text-[18px] px-[25px] py-[15px]  rounded-md font-merriweather"
+                  className="bg-blue-600 text-white text-[18px] px-[15px] lg:px-[25px] py-[5px] lg:py-[15px]  rounded-md font-merriweather"
                 >
                   Register
                 </button>

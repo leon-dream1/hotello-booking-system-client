@@ -48,7 +48,7 @@ const Register = () => {
   return (
     <div
       className="flex w-full max-w-md mx-auto overflow-hidden bg-white 
-    rounded-lg shadow-lg lg:max-w-7xl h-[500px] mt-[150px]"
+    rounded-lg shadow-lg lg:max-w-7xl h-[500px] mt-[50px] lg:mt-[150px]"
     >
       <div
         className="hidden bg-cover lg:block lg:w-1/2"

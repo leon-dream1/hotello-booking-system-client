@@ -10,8 +10,8 @@ const Contact = () => {
 
   return (
     <div className="container mx-auto">
-      <div className=" grid grid-cols-1 md:grid-cols-2 items-center pt-[150px] gap-8">
-        <div>
+      <div className=" grid grid-cols-1 md:grid-cols-2 items-center pt-[50px] lg:pt-[150px] gap-8">
+        <div className="p-[50px] lg:p-0">
           <p className="text-[#131313] font-von text-[18px] mb-[30px]">
             Waters midst. Creature man female. Them You’re female there his for
             first were have whose and blessed darkness his man Darkness had

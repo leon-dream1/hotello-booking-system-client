@@ -10,7 +10,7 @@ const customStyles = {
     left: "50%",
     right: "auto",
     bottom: "auto",
-    padding: '0px', 
+    padding: "0px",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     position: "fixed", // Fixed positioning to prevent scrolling
@@ -47,17 +47,18 @@ const SpecialOffer = () => {
         style={customStyles}
       >
         <div
-          className="p-[100px]"
+          className="p-[50px] lg:p-[100px]"
           style={{
             backgroundImage: `url('${offer?.image_url}')`,
             backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
           }}
         >
           <div className="mt-6 text-center">
-            <h4 className="text-[55px] font-von mb-5 text-[#FFAC41] font-extrabold">
+            <h4 className="text-[30px] lg:text-[55px] font-von mb-5 text-[#FFAC41] font-extrabold">
               {offer?.title}
             </h4>
-            <h4 className="text-[35px] font-merriweather mb-5 text-white font-semibold line-through">
+            <h4 className="text-[20px] lg:text-[35px] font-merriweather mb-5 text-white font-semibold line-through">
               {offer?.original_price}
             </h4>
             <h4 className="text-[45px] font-merriweather mb-5 text-green-500 font-extrabold">
