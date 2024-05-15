@@ -35,75 +35,95 @@ const Banner = () => {
     >
       <SpecialOffer />
       <SwiperSlide>
-        <div className={`h-[800px] bg-bgImg1 bg-no-repeat bg-cover z-10`}>
-          <div className="h-[800px] flex flex-col items-center justify-center bg-black opacity-70">
-            <h1 className="text-[80px] font-von text-white font-extrabold">
+        <div
+          className={`h-[500px] md:h[700px] lg:h-[862px] bg-bgImg1 bg-no-repeat bg-cover z-10`}
+        >
+          <div className="h-[500px] md:h[700px] lg:h-[862px] flex flex-col items-center justify-center bg-black opacity-70">
+            <h1 className="text-[30px] lg:text-[80px] font-von text-white font-extrabold">
               Welcome to <span className="text-[#FFAC41]">Hotello</span>
             </h1>
-            <div className="flex gap-8 space-x-[80px] mt-[50px]">
+            <div className="flex gap-8 space-x-5 lg:space-x-[80px] mt-[30px] lg:mt-[50px]">
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <RiDrinks2Line size={50} />
-                <h4 className="text-[30px] font-merriweather font-bold">
+                <h4 className="text-[15px] lg:text-[30px] font-merriweather font-bold">
                   Drinks
                 </h4>
               </div>
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <MdEventAvailable size={50} />
-                <h4 className="text-[30px] font-merriweather font-bold">
+                <h4 className="text-[15px] lg:text-[30px] font-merriweather font-bold">
                   Special Events
                 </h4>
               </div>
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <CgGym size={50} />
-                <h4 className="text-[30px] font-merriweather font-bold">Gym</h4>
+                <h4 className="text-[15px] lg:text-[30px] font-merriweather font-bold">
+                  Gym
+                </h4>
               </div>
             </div>
           </div>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className={`h-[800px] bg-bgImg1 bg-no-repeat bg-cover`}>
-          <div className="h-[800px] flex flex-col items-center justify-center bg-black opacity-70">
-            <h1 className="text-[80px] font-von text-white font-extrabold">
+        <div
+          className={`h-[500px] md:h[700px] lg:h-[862px] bg-bgImg1 bg-no-repeat bg-cover z-10`}
+        >
+          <div className="h-[500px] md:h[700px] lg:h-[862px] flex flex-col items-center justify-center bg-black opacity-70">
+            <h1 className="text-[30px] lg:text-[80px] font-von text-white font-extrabold">
               Golden <span className="text-[#FFAC41] font-von">Autumn </span>
               Offer
             </h1>
-            <div className="flex gap-8 space-x-[80px] mt-[50px]">
+            <div className="flex gap-8 space-x-5 lg:space-x-[80px] mt-[30px] lg:mt-[50px]">
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <FaWifi size={50} />
-                <h4 className="text-[30px] font-merriweather ">Free Wifi</h4>
+                <h4 className="text-[15px] lg:text-[30px] font-merriweather ">
+                  Free Wifi
+                </h4>
               </div>
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <LuParkingCircle size={50} />
-                <h4 className="text-[30px] font-merriweather">Free Parking</h4>
+                <h4 className="text-[15px] lg:text-[30px] font-merriweather">
+                  Free Parking
+                </h4>
               </div>
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <MdFreeBreakfast size={50} />
-                <h4 className="text-[30px] font-merriweather">BreakFast</h4>
+                <h4 className="text-[15px] lg:text-[30px] font-merriweather">
+                  BreakFast
+                </h4>
               </div>
             </div>
           </div>
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className={`h-[800px] bg-bgImg1 bg-no-repeat bg-cover`}>
-          <div className="h-[800px] flex flex-col items-center justify-center bg-black opacity-70">
-            <h1 className="text-[80px] font-von text-white font-extrabold">
+        <div
+          className={`h-[500px] md:h[700px] lg:h-[862px] bg-bgImg1 bg-no-repeat bg-cover z-10`}
+        >
+          <div className="h-[500px] md:h[700px] lg:h-[862px] flex flex-col items-center justify-center bg-black opacity-70">
+            <h1 className="text-[30px] lg:text-[80px] font-von text-white font-extrabold">
               Enjoy <span className="text-[#FFAC41] font-von">The </span>{" "}
               Experience
             </h1>
-            <div className="flex gap-8 space-x-[80px] mt-[50px]">
+            <div className="flex gap-8 space-x-5 lg:space-x-[80px] mt-[30px] lg:mt-[50px]">
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <CiDiscount1 size={50} />
-                <h4 className="text-[30px] font-merriweather">Discount</h4>
+                <h4 className="text-[15px] lg:text-[30px] font-merriweather">
+                  Discount
+                </h4>
               </div>
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <MdLocalOffer size={50} />
-                <h4 className="text-[30px] font-merriweather">Best offer</h4>
+                <h4 className="text-[15px] lg:text-[30px] font-merriweather">
+                  Best offer
+                </h4>
               </div>
               <div className="text-white font-extrabold flex flex-col items-center space-y-4">
                 <FaGift size={50} />
-                <h4 className="text-[30px] font-merriweather">Special Gift</h4>
+                <h4 className="text-[15px] lg:text-[30px] font-merriweather">
+                  Special Gift
+                </h4>
               </div>
             </div>
           </div>

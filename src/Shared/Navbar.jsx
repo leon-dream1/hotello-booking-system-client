@@ -74,11 +74,11 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-[#333333] p-2">
+    <div className="bg-[#333333] lg:p-2">
       <div className="container mx-auto">
         <div className="navbar">
           <div className="navbar-start">
-            <div className="dropdown">
+            <div className="dropdown text-white">
               <div
                 tabIndex={0}
                 role="button"
@@ -107,7 +107,7 @@ const Navbar = () => {
               </ul>
             </div>
             <Link to="/" className="cursor-pointer">
-              <img src={logo} alt="" className="w-[70%]" />
+              <img src={logo} alt="" className="w-[80%] md:w-[70%]" />
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
@@ -137,7 +137,7 @@ const Navbar = () => {
                     </div>
                     <ul
                       tabIndex={0}
-                      className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                      className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-56"
                     >
                       <li>
                         <a>{user.displayName}</a>

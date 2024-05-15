@@ -11,9 +11,9 @@ const Home = () => {
         <title>Hotello | Book your Favorite Room</title>
       </Helmet>
       <Banner />
-      <FeaturedRoom />
+      {/* <FeaturedRoom />
       <HotelLocation />
-      <Review />
+      <Review /> */}
     </div>
   );
 };
