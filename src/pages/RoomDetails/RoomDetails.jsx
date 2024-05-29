@@ -68,6 +68,7 @@ const RoomDetails = () => {
         if (res.data.modifiedCount) {
           closeModal();
           toast("Congratulation!!!! Room is Booked For you");
+          navigate("/myBooking");
         }
       })
       .catch((err) => console.log(err));

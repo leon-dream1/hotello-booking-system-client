@@ -25,6 +25,7 @@
     "react-leaflet": "^4.2.1",
     "react-loader-spinner": "^6.1.6",
     "react-modal": "^3.16.1",
+    "react-range-slider-input": "^3.0.7",
     "react-router-dom": "^6.23.0",
     "react-toastify": "^10.0.5",
     "react-tooltip": "^5.26.4",
