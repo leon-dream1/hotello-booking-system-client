@@ -10,9 +10,12 @@ const MyBooking = () => {
 
   const getData = () => {
     axios
-      .get(`https://hotello-booking-system-server.vercel.app/booking/${user.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://hotello-booking-system-server.vercel.app/booking/${user.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         setMyBooking(res.data);
       })
@@ -28,9 +31,11 @@ const MyBooking = () => {
         <Helmet>
           <title>Booking</title>
         </Helmet>
+
         <h2 className="mb-4 text-2xl font-semibold leading-tight">
           All Booking
         </h2>
+
         <div className="overflow-x-auto">
           <table className="min-w-full text-xs">
             <colgroup>

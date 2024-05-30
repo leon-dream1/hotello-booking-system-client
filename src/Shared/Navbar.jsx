@@ -104,6 +104,16 @@ const Navbar = () => {
                 >
                   Contact Us
                 </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                      : "text-[20px] text-[#131313] font-merriweather font-medium"
+                  }
+                  to="/"
+                >
+                  Gallery
+                </NavLink>
               </ul>
             </div>
             <Link to="/" className="cursor-pointer">
@@ -161,6 +171,16 @@ const Navbar = () => {
                 to="/contact"
               >
                 Contact Us
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[20px] font-merriweather text-[#FFAC41] font-bold"
+                    : "text-[20px] text-white font-merriweather font-medium"
+                }
+                to="/gallery"
+              >
+                Gallery
               </NavLink>
             </ul>
           </div>

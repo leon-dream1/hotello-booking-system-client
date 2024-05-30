@@ -10,6 +10,7 @@ import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
 import ReviewFromUser from "../pages/Home/ReviewFromUser/ReviewFromUser";
 import Contact from "../pages/Contact/Contact";
+import Gallery from "../pages/Gallery/Gallery";
 
 export const router = createBrowserRouter([
   {
@@ -49,7 +50,9 @@ export const router = createBrowserRouter([
         path: "/room/:id",
         element: <RoomDetails />,
         loader: ({ params }) =>
-          fetch(`https://hotello-booking-system-server.vercel.app/room/${params.id}`),
+          fetch(
+            `https://hotello-booking-system-server.vercel.app/room/${params.id}`
+          ),
       },
       {
         path: "/myBooking",
@@ -58,6 +61,10 @@ export const router = createBrowserRouter([
             <MyBooking />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/gallery",
+        element: <Gallery />,
       },
     ],
   },
