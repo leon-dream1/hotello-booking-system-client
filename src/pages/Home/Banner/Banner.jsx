@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-// import Slide from "./Slide";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { RiDrinks2Line } from "react-icons/ri";
 import {
